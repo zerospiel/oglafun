@@ -16,3 +16,10 @@ bench: .bench
 goimports:
 	$(info #Running goimports...)
 	find . -name "*.go" | grep -vE "^(\.\/pkg\/)|vendor|_mock.go" | xargs -n1 goimports -w
+
+.PHONY: .run
+.run:
+	go run .
+
+.PHONY: run
+run: .run
