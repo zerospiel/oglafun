@@ -41,6 +41,16 @@ func Test_idkfunc(t *testing.T) {
 			in:       []int{1, 100, 3, 4, 5, 6, 100, 100, 100, 100, 100},
 			expected: 100,
 		},
+		{
+			name:     "50/50; expect minus one",
+			in:       []int{1, 1, 1, 1, 2, 2, 2, 2},
+			expected: -1,
+		},
+		{
+			name:     "51/49; expect major",
+			in:       []int{1, 1, 1, 1, 2, 2, 2, 2, 1},
+			expected: 1,
+		},
 	} {
 		t.Run(tc.name, func(t *testing.T) {
 			require.Equal(t, tc.expected, idkfunc(tc.in))
